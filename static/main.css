@@ -1,0 +1,584 @@
+
+
+/* --- Start Global Rules */
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-family: "Open Sans", sans-serif;
+}
+ul {
+    list-style: none;
+}
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- End ====> Global Rules */
+
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+
+
+/* --- Start Header */
+
+
+/*  Generique (HEADER) between both ( Hispanic, Afro-american, White ) */
+
+header {
+    padding: 25px;
+    margin: 25px auto;
+    width: 93%;
+
+    /* @-- relative */
+    position: relative;
+
+    /* Because .page will start from top-left */
+    z-index: 1;
+}
+
+/* Bottom Line */
+header .container::after {
+    content: "";
+    position: absolute;
+    height: 1px;
+    width: calc(100% - 45px);
+    background-color: #a2a2a2;
+    bottom: -2px;
+    left: 24px;
+
+    /* So the bottom-border of anochor can be on top */
+    z-index: -1;
+}
+
+header ul {
+    display: flex;
+    justify-content: space-between;
+}
+header .hispanic_container header li  .active {
+    border-bottom: 1px solid #19c8fa;
+}
+header ul li a {
+    padding-bottom: 26px; 
+    border-bottom: 1px solid #a2a2a2;
+    transition: .3s;
+}
+header li a:hover,
+header li .active {
+    padding-bottom: 26px; 
+    font-weight: 600;
+}
+header li a {
+    text-decoration: none;
+}
+
+/* --- End ====> Header */
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+/* ~~ Generique (PAGE) between both ( Hispanic, Afro-american, White ) */
+
+/* Page photo and size */
+.page {
+    background-size: cover;
+    min-height: 100vh;
+    width: 100%;
+
+    /* @-- Relative  ===> top-left */
+    position: relative;
+    top: -122px;
+
+    /* Other wise big margin will occur */
+    margin-bottom: -122px;
+
+    overflow: hidden;
+
+}
+.overlay {
+    content: "";
+    position:absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 62%);
+}
+/* -------------------------------------------------------------- */
+
+/* Parent */
+.page .left_right_slide {
+    position: relative;
+
+    /* Take the whole page size */
+    height: 100vh;
+}
+.page .left_right_slide .left_slide ,
+.page .left_right_slide .right_slide  {
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.page .left_right_slide .left_slide {
+    left: 0;
+}
+.page .left_right_slide .right_slide  {
+    right: 0;
+}
+
+/* -- ----------------------------------------- */
+
+
+/* Style both (arrows) */
+.page .left_right_slide .left_slide .left,
+.page .left_right_slide .right_slide .right {
+
+    /* It is span to be resized */
+    display: inline-block;
+    font-size: 18px;
+    padding: 10px;
+
+    cursor: pointer;
+    /* For the color when hover */
+    transition: .3s;
+}
+
+/* -- -------------------------------------- */
+
+/* Both messages */
+.page .left_right_slide .msg {
+
+    position: absolute;
+    width: max-content;
+
+    color: black;
+    padding: 10px;
+    border-radius: 5px;  
+}
+.page .left_right_slide .left_slide .msg {
+    left: 56px;
+}
+.page .left_right_slide .right_slide .msg {
+    right: 56px;
+}
+
+/* -- -------------------------------------- */
+
+/* Point from message */
+.page .left_slide .msg::before,
+.page .right_slide .msg::after{
+
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    border-style: solid;
+    border-width: 9px;
+}
+.page .left_slide .msg::before {
+    left: -18px;
+}   
+.page .right_slide .msg::after {
+    right: -18px;
+}   
+
+/* -- -------------------------------------- */
+
+/* --- Hide both MESSAGES */
+.page .msg {
+    display: none;
+}
+/* If reaches limits ===> (JavaScript)  */
+.page .right_slide:hover .openMsg,
+.page .left_slide:hover .openMsg {
+    display: inline-block;
+}
+/* -- -------------------------------------- */
+
+/* By default both are green */
+.page .left_right_slide .right:hover,
+.page .left_right_slide .left:hover
+{
+    background-color: green;
+}
+/* If reaches limits ===> (JavaScript)  */
+.page .left_right_slide .right_slide:hover .limit_reached,
+.page .left_right_slide .left_slide:hover .limit_reached {
+    background-color: #c91204c7;
+    pointer-events: none;
+}
+
+/* -------------------------------------------------------------- */
+
+
+/* --- Content with box's */
+.page .parent_box {
+
+    /* Relative to the whole page */
+    position: absolute;
+    /* Space from the header */
+    top: 15%; 
+
+    margin: 43px;
+    display: flex;  
+    justify-content: space-around;
+    flex-wrap: wrap;
+
+    /* ++ To switch the slide  */
+    transition: linear .6s;
+} 
+
+.page .parent_box .box {
+    flex-basis: 30%;
+    margin: 14px;
+    padding-left: 5px;
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+/* -- ----------------------------------------- */
+
+.page .parent_box .box h3{
+    font-weight: normal;
+    font-size: 16px;
+    padding: 5px;
+}
+
+.page .parent_box .box p {
+    display: none;
+}
+
+.page .slide_number {
+    position: absolute;
+    top: 92%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px;
+}
+.page .parent_box .box,
+.page .left, 
+.page .right,
+.page .slide_number
+{
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+/* -- ----------------------------------------------------------------------- */
+
+/* @-- Media */
+
+@media (max-width:950px) {
+
+    header {
+        display: none;
+    }
+    .page {
+        /* Give space from bottom */
+        margin: auto;
+        overflow: scroll;
+        /* Won't start from top like this ! */
+        top:0;
+        height: 0vh;
+    }
+    .page .overlay {
+        height: 235%;
+    }
+    .page .parent_box  {
+        display: block;
+        position: relative;
+        margin-top: 16%;
+    }
+    .page .left_right_slide {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+    .page .slide_number {
+        top: 16%;
+    }
+}
+@media (max-width: 737px) {
+
+    .page .parent_box{
+        margin-top: 17%;
+    }
+}
+@media (max-width: 520px) {
+
+    .page .parent_box {
+        margin-top: 33%;
+    }
+}
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+/* --- Start Display Box */
+
+/* TO BE ADDED WITH JAVASCRIPT - WITH DIV'S */
+
+.overlay_background {
+    content: "";
+    position:absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0 0 0 / 82%);
+    z-index: 3333;
+}
+
+.close_botton  {
+    position: absolute;
+    right: 16px;
+    top: 11px;
+    font-size: x-large;
+    background-color: #ffffffa1;
+    height: 35px;
+    width: 35px;
+    line-height: initial;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+.show_box_info {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 44444;
+
+    background-color: rgb(40 38 38 / 92%);
+    color: #ffffffa1;
+
+    padding: 20px;  
+    height: 77%;
+    width: 87%;
+    border-radius: 6px;
+
+    line-height: 1.7;
+    overflow: auto;
+}
+
+
+.show_box_info span, p
+{
+    color: rgb(70 179 179 / 76%);
+    font-weight: 400;
+}
+
+/* --- End ====> Display Box */
+
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+
+/* --- Start Hispanic   */
+
+.hispanic_container {
+    padding-bottom: 23px;
+}
+
+.hispanic_container header li a:hover,
+.hispanic_container header li .active {
+    
+    color: rgb(70 179 179); 
+    border-color: rgb(70 179 179); 
+}
+.hispanic_container header li a {
+    color: #ffffffd9;
+    
+}
+/* -- -------------------------------- */
+
+/*   .hispanic_page & .page ====> are the same */
+.hispanic_container .hispanic_page {
+    background-image: url(../static/imgs/landing1.jpg);
+    color: #ffffffd9;
+}
+
+.hispanic_container .hispanic_page .left, 
+.hispanic_container .hispanic_page .right,
+.hispanic_container .hispanic_page .parent_box .box,
+.hispanic_container .hispanic_page .slide_number
+{
+    background-color: #26485682;
+}
+
+.hispanic_container .hispanic_page .parent_box .box span,
+.hispanic_container .hispanic_page .slide_number span:last-of-type
+{
+    color: rgb(70 179 179);
+}
+
+/* -- -------------------------------- */
+
+
+.hispanic_container .left_right_slide .msg {
+    background-color: #84adc3;
+}
+.hispanic_container .left_slide .msg::before {
+    border-color: transparent #84adc3 transparent transparent;
+}   
+.hispanic_container .right_slide .msg::after {
+    border-color: transparent transparent transparent #84adc3;
+}  
+
+/* -- -------------------------------- */
+
+
+
+/* --- End ====> Hispanic  */
+
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+
+/* --- Start  afro_americans */
+
+
+.afro_container {
+    padding-bottom: 23px;
+}
+
+.afro_container header li a:hover,
+.afro_container header li .active {
+    
+    color: #000000;
+    border-color: black;
+}
+.afro_container header li a {
+    color: #ffffffc9;
+}
+
+/*  -- ----------------------------------- */
+
+.afro_container .afro_page {
+    background-image: url(../static/imgs/landing.jpg);
+    color: #ffffffc9;
+}
+
+.afro_container .afro_page .left, 
+.afro_container .afro_page .right,
+.afro_container .afro_page .parent_box .box,
+.afro_container .afro_page .slide_number 
+{
+    background-color: #000000ad;
+}
+
+/* --- Person info */
+.afro_container .afro_page .parent_box .box span,
+.afro_container .afro_page .slide_number span:last-of-type
+{
+    color: #7e7d7d;
+}
+
+/* -- -------------------------------- */
+
+
+.afro_container .left_right_slide .msg {
+    background-color: #919191;
+}
+.afro_container .left_slide .msg::before {
+    border-color: transparent #919191 transparent transparent;
+}   
+.afro_container .right_slide .msg::after {
+    border-color: transparent transparent transparent #919191;
+}  
+
+/* -- -------------------------------- */
+
+.afro_container .show_box_info span,
+.afro_container .show_box_info p,
+.afro_container .close_botton
+{
+    color: #7e7d7d;
+    font-weight: 600;
+
+}
+
+/* --- End ====> afro_americans */
+
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+
+
+/* --- Start White */
+
+.white_container {
+    padding-bottom: 5px;
+}
+
+.white_container header li a {
+    color: #ffffffc9;
+}
+
+.white_container header li a:hover,
+.white_container header li .active {
+    
+    color: #3987c5d9;
+    border-color: #3987c5d9;
+}
+
+/*  -- ----------------------------------- */
+
+.white_container .white_page {
+    background-image: url(../static/imgs/landing2.jpg);
+    color: #ffffffa8;
+}
+
+.white_container .white_page .left, 
+.white_container .white_page .right,
+.white_container .white_page .parent_box .box,
+.white_container .white_page .slide_number 
+{
+    background-color: #000000ad;
+}
+
+/* --- Person info */
+.white_container .white_page .parent_box .box span,
+.white_container .white_page .slide_number span:last-of-type
+{
+    color: #3987c5d9;
+}
+
+/* -- -------------------------------- */
+
+
+.white_container .left_right_slide .msg {
+    background-color: #445f9d;
+    color: #ffffffd9;
+}
+.white_container .left_slide .msg::before {
+    border-color: transparent #445f9d transparent transparent;
+}   
+.white_container .right_slide .msg::after {
+    border-color: transparent transparent transparent #445f9d;
+}  
+
+/* -- -------------------------------- */
+
+.white_container .show_box_info span,
+.white_container .show_box_info p,
+.white_container .close_botton
+{
+    color: #3987c5d9;
+}
+
+/* --- End ====> White */
+
+
+/* ++ ---------------------------------------------------------------------------------------------------- */
+

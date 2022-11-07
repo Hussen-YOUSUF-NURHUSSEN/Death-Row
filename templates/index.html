@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <!--++  Main Template CSS File -->
+        <link rel="stylesheet" href = "../static/main.css" />
+
+        <!-- (open Sans) font from google font + with selected size -->
+        <link rel="preconnect" href="https://fonts.gstatic.com" />
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet" />
+
+        <title>Deathrow</title>
+    </head>
+
+    <body>
+        
+        <!-- --- Start Hispanic  -->
+        <div class="hispanic_container" id="hispanic_container">
+            <header>
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="#" class="active" >Hispanic</a></li>
+                            <li><a href="#afro_container">Black</a></li>
+                            <li><a href="#white_container">White</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- ++ Page -->
+            <div class="page hispanic_page">
+
+                <div class="overlay"></div>
+                
+                <div class="left_right_slide">
+                    <div class="left_slide">
+                        <span class="left"><</span>
+                        <span class="msg">Msg</span>
+                    </div>
+                    <div class="right_slide">
+                        <span class="msg">Msg</span>
+                        <span class="right">></span>
+                    </div>
+                </div>
+
+                <div class="parent_box "> 
+                    {% for hispanic in hispanics_americans %}
+                        <div class="box">
+
+                            <h3>First Name : <span>{{hispanic[1]}}</span></h3>
+                            <h3>Last Name : <span>{{hispanic[2]}}</span></h3>
+                            <h3>Date of Birth : <span>{{hispanic[3]}}</span></h3>
+                            <h3>Education_level : <span>{{hispanic[4]}}</span></h3>
+                            <h3 class="race">Race : <span>{{hispanic[5]}}</span></h3>
+                            <h3>Native State : <span>{{hispanic[6]}}</span></h3>
+                            <p>{{hispanic[11]}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="slide_number"><span>1</span> From <span>{{ hispanic_number }}</span></div>
+            </div>
+        </div>
+        <!-- --- End-->
+
+
+
+        <!-- --- Start Afro American  -->
+        <div class="afro_container" id="afro_container">
+            <header>
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="#hispanic_container">Hispanic</a></li>
+                            <li><a href="#" class="active" >Black</a></li>
+                            <li><a href="#white_container">White</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- ++ Page ===> start from top-left -->
+            <div class="page afro_page" >
+    
+                <div class="overlay"></div>
+                
+                <div class="left_right_slide">
+                    <div class="left_slide">
+                        <span class="left"><</span>
+                        <span class="msg">Msg</span>
+                    </div>
+                    <div class="right_slide">
+                        <span class="msg">Msg</span>
+                        <span class="right">></span>
+                    </div>
+                </div>
+    
+                <div class="parent_box">
+                    {% for afro_american in afro_americans %}
+                        <div class="box">
+                            <h3>First Name : <span>{{afro_american[1]}}</span></h3>
+                            <h3>Last Name : <span>{{afro_american[2]}}</span></h3>
+                            <h3>Date of Birth : <span>{{afro_american[3]}}</span></h3>
+                            <h3>Education_level : <span>{{afro_american[4]}}</span></h3>
+                            <h3 class="race">Race : <span>{{afro_american[5]}}</span></h3>
+                            <h3>Native State : <span>{{afro_american[6]}}</span></h3>
+                            <p>{{afro_american[11]}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="slide_number"><span>1</span> From <span>{{ afro_number }}</span></div>
+            </div>
+        </div>
+        <!-- --- End-->
+        
+
+
+        
+        <!-- --- Start White  -->
+        <div class="white_container" id="white_container">
+            <header>
+                <div class="container">
+                    <nav>
+                        <ul>
+                            <li><a href="#hispanic_container">Hispanic</a></li>
+                            <li><a href="#afro_container">Black</a></li>
+                            <li><a href="#" class="active" >White</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </header>
+            <!-- ++ Page ===> start from top-left -->
+            <div class="page white_page" >
+    
+                <div class="overlay"></div>
+        
+                <div class="left_right_slide">
+                    <div class="left_slide">
+                        <span class="left"><</span>
+                        <span class="msg">Msg</span>
+                    </div>
+                    <div class="right_slide">
+                        <span class="msg">Msg</span>
+                        <span class="right">></span>
+                    </div>
+                </div>
+    
+                <div class="parent_box">
+                    {% for europe_american in europe_americans %}
+                        <div class="box">
+                            <h3>First Name : <span>{{europe_american[1]}}</span></h3>
+                            <h3>Last Name : <span>{{europe_american[2]}}</span></h3>
+                            <h3>Date of Birth : <span>{{europe_american[3]}}</span></h3>
+                            <h3>Education_level : <span>{{europe_american[4]}}</span></h3>
+                            <h3 class="race">Race : <span>{{europe_american[5]}}</span></h3>
+                            <h3>Native State : <span>{{europe_american[6]}}</span></h3>
+                            <p>{{europe_american[11]}}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="slide_number"><span>1</span> From <span>{{ europe_number }}</span></div>
+            </div>
+        </div>
+        <!-- --- End -->
+
+
+        
+        <script src="../static/main.js"></script>
+    </body>
+</html>
